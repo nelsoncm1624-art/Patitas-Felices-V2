@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patitas Felices - Citas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>🐾 Patitas Felices</h1>
+    <label>Usuario (demo):
+      <select id="selUsuario"></select>
+    </label>
+  </header>
+
+  <nav>
+    <button id="tabCitas" class="activo">Mis citas</button>
+    <button id="tabAgendar">Agendar cita</button>
+  </nav>
+
+  <div id="aviso" role="alert" hidden></div>
+
+  <main>
+    <section id="vistaCitas">
+      <h2>Mis citas</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr><th>Fecha y hora</th><th>Mascota</th><th>Veterinario</th><th>Motivo</th><th>Estado</th><th>Acciones</th></tr>
+          </thead>
+          <tbody id="tbodyCitas"></tbody>
+        </table>
+      </div>
+      <p id="sinCitas" hidden>No hay citas registradas.</p>
+    </section>
+
+    <section id="vistaAgendar" hidden>
+      <h2>Agendar cita</h2>
+      <div class="formulario">
+        <label for="selMascota">Mascota</label>
+        <select id="selMascota"></select>
+
+        <label for="selVet">Veterinario</label>
+        <select id="selVet"></select>
+        <small id="horarioVet"></small>
+
+        <label for="inpFecha">Fecha y hora</label>
+        <input type="datetime-local" id="inpFecha" step="900">
+
+        <label for="inpMotivo">Motivo</label>
+        <input type="text" id="inpMotivo" maxlength="255" placeholder="Ej: vacunación anual">
+
+        <button id="btnAgendar">Agendar</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlgReprogramar">
+    <h3>Reprogramar cita</h3>
+    <label for="inpNuevaFecha">Nueva fecha y hora</label>
+    <input type="datetime-local" id="inpNuevaFecha" step="900">
+    <div class="botones">
+      <button id="btnConfirmarRepro">Guardar</button>
+      <button id="btnCerrarRepro" class="secundario">Cerrar</button>
+    </div>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
